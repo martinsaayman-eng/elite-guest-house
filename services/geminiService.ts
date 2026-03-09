@@ -1,45 +1,21 @@
+// services/geminiService.ts
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-import { GoogleGenAI } from "@google/genai";
+// Get the API key from environment variables
+const apiKey = import.meta.env.VITE_GOOGLE_AI_API_KEY;
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Check if the API key exists
+if (!apiKey) {
+  throw new Error("Missing VITE_GOOGLE_AI_API_KEY environment variable. Please add it to your .env file.");
+}
 
-/**
- * Generates a response from the management assistant using Gemini 3 Flash.
- * @param prompt Internal staff query.
- * @param context Management context including unit prices and name.
- * @returns AI generated assistance text.
- */
-export const getGeminiResponse = async (prompt: string, context?: any) => {
-  const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
-    contents: `Context: ${JSON.stringify(context || {})}
-      
-      Staff Query: ${prompt}`,
-    config: {
-      systemInstruction: `You are the Guest House Management Assistant for ${context?.guestHouseName || 'our Guesthouse'}. 
-      You help administrative staff with logistics, booking summaries, unit details, and operational efficiency.`,
-      temperature: 0.7,
-      topP: 0.95,
-      topK: 40,
-    }
-  });
+// Initialize the Google AI client with the API key
+const genAI = new GoogleGenerativeAI(apiKey);
 
-  return response.text;
-};
-
-/**
- * Analyzes the sentiment of a guest review for management review.
- * @param text The review string.
- * @returns One of POSITIVE, NEUTRAL, or NEGATIVE.
- */
-export const analyzeSentiment = async (text: string) => {
-  const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
-    contents: `Analyze the sentiment of this guest review: "${text}". Return only one word: POSITIVE, NEUTRAL, or NEGATIVE.`,
-    config: {
-      responseMimeType: "text/plain",
-    }
-  });
-  
-  return response.text?.trim() || 'NEUTRAL';
+export const geminiService = {
+  async generateContent(prompt: string) {
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const result = await model.generateContent(prompt);
+    return result.response.text();
+  },
 };
