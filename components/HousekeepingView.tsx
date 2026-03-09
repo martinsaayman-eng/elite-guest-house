@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { supabase } from '../services/supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 import RoomCard from './RoomCard';
 
 // 👇 Define proper TypeScript type, update this to match all columns on your Supabase rooms table
