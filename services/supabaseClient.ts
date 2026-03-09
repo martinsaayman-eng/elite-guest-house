@@ -1,8 +1,11 @@
-/// <reference types="vite/client" />
-import { createClient } from '@supabase/supabase-client';
+// src/services/supabaseClient.ts
+import { createClient } from '@supabase/supabase-js';
 
-// Vite requires the VITE_ prefix to expose variables to the browser
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
