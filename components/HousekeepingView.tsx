@@ -5,9 +5,9 @@ import RoomCard from './RoomCard';
 const HousekeepingView: React.FC = () => {
   const [rooms, setRooms] = useState<any[]>([]);
 
-  // Fetches your rooms (like Luxury Suite 101) from Supabase
   useEffect(() => {
     const getData = async () => {
+      // Fetches your rooms from the 'rooms' table
       const { data } = await supabase.from('rooms').select('*').order('name');
       if (data) setRooms(data);
     };
