@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { supabase } from '../services/supabaseClient'; // adjust path as needed
+import { supabase } from '../services/supabaseClient';
 
 interface RoomProps {
-  id: number;
+  id: string | number;
   name: string;
-  housekeeping_status: 'clean' | 'dirty';
+  housekeeping_status: any;
 }
 
 const RoomCard: React.FC<RoomProps> = ({ id, name, housekeeping_status }) => {
@@ -22,24 +22,17 @@ const RoomCard: React.FC<RoomProps> = ({ id, name, housekeeping_status }) => {
 
   return (
     <div className={`p-6 border-2 rounded-2xl shadow-sm transition-all ${
-        // FIX 1: Use a template literal (`...`) and ternary operator for the conditional class
-        status === 'dirty' ? 'border-red-500 bg-red-50 animate-pulse' : 'border-green-500 bg-green-50'
-      }`}>
-      
-      {/* FIX 2: Wrap {name} in curly braces */}
+      status === 'dirty' ? 'border-red-500 bg-red-50 animate-pulse' : 'border-gray-200 bg-white'
+    }`}>
       <h3 className="text-2xl font-bold serif text-gray-800 mb-2">{name}</h3>
-      
       <p className="mb-4 text-sm font-semibold uppercase tracking-wider">
-        Status:{' '}
-        {/* FIX 3: Correctly apply the conditional class to the span */}
-        <span className={status === 'dirty' ? 'text-red-600' : 'text-green-600'}>
+        Status: <span className={status === 'dirty' ? 'text-red-600' : 'text-green-600'}>
           {status}
         </span>
       </p>
-
       <button
         onClick={toggleStatus}
-        className="w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-700 transition-colors"
+        className="w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-colors"
       >
         Mark as {status === 'clean' ? 'Dirty' : 'Clean'}
       </button>
