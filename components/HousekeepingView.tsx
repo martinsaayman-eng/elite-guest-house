@@ -24,12 +24,21 @@ const HousekeepingView: React.FC = () => {
   if (loading) return <div className="p-10 text-center">Loading Rooms...</div>;
 
   return (
-    <div className="max-w-md mx-auto pb-20 bg-gray-50 min-h-screen">
-      <header className="p-6 bg-white shadow-sm mb-4 text-center">
-        <h1 className="text-3xl font-bold serif text-gray-900">Elite Housekeeping</h1>
-        <p className="text-gray-500 text-sm">Tap buttons to update status</p>
+    <div className="min-h-screen bg-gray-50 pb-20">
+      {/* Header that stretches for Desktop */}
+      <header className="p-6 bg-white shadow-sm mb-6 flex flex-col md:flex-row md:justify-between md:items-center px-4 lg:px-20">
+        <div>
+          <h1 className="text-3xl font-bold serif text-gray-900">Elite Housekeeping</h1>
+          <p className="text-gray-500 text-sm">Real-time room management</p>
+        </div>
       </header>
-      <div className="space-y-1 px-2">
+
+      {/* The Magic Step: 
+         'grid-cols-1' for phones
+         'md:grid-cols-2' for tablets
+         'lg:grid-cols-3' for desktop screens
+      */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 lg:px-20">
         {rooms.map((room) => (
           <RoomCard 
             key={room.id}
