@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 
-// This is the "Secret Sauce" that fixes the red lines!
+// This is the "Interface" that fixes the red lines in your other file
 interface RoomProps {
   id: string;
   name: string;
@@ -23,7 +23,7 @@ const RoomCard: React.FC<RoomProps> = ({ id, name, housekeeping_status }) => {
 
   return (
     <div className={`p-6 border-2 rounded-2xl shadow-sm transition-all ${
-      status === 'dirty' ? 'border-red-500 bg-red-50' : 'border-green-500 bg-green-50'
+      status === 'dirty' ? 'border-red-500 bg-red-50 animate-pulse' : 'border-green-500 bg-green-50'
     }`}>
       <h3 className="text-2xl font-bold serif text-gray-800 mb-2">{name}</h3>
       <p className="mb-4 text-sm font-semibold uppercase tracking-wider">
