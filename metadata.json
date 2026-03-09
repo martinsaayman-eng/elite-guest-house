@@ -1,0 +1,8 @@
+{
+  "name": "ESTATE MANAGEMENT",
+  "description": "A luxury-tier guest house management portal featuring real-time booking, automated invoicing, financial administration, and an integrated AI concierge for guest support.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
