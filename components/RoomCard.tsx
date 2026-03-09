@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '@/lib/supabaseClient'; // adjust path as needed
+import { supabase } from '../services/supabaseClient'; // adjust path as needed
 
 interface RoomProps {
   id: number;
