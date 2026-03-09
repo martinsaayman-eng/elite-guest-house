@@ -1,4 +1,11 @@
-// ... (imports and interface)
+import React, { useState } from 'react';
+import { supabase } from '@/lib/supabaseClient'; // adjust path as needed
+
+interface RoomProps {
+  id: number;
+  name: string;
+  housekeeping_status: 'clean' | 'dirty';
+}
 
 const RoomCard: React.FC<RoomProps> = ({ id, name, housekeeping_status }) => {
   const [status, setStatus] = useState(housekeeping_status);
