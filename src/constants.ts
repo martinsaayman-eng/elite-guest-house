@@ -1,5 +1,5 @@
 
-import { Room } from './types';
+import { Room } from '../types';
 
 export const GUEST_HOUSE_NAME = "ESTATE MANAGEMENT";
 export const GUEST_HOUSE_ADDRESS = "123 Luxury Avenue, Cape Town, 8001";

@@ -1,7 +1,7 @@
 
 import { useMemo } from 'react';
 import { Booking, UserContext, AnalyticsSummary, ChartDataPoint } from '../types';
-import { ROOMS } from '../constants';
+import { ROOMS } from '../src/constants';
 
 export const useAnalytics = (bookings: Booking[], userContext: UserContext | null) => {
   const today = new Date();

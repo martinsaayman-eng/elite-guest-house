@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Room, Booking, LedgerTransaction } from '../types';
 import Calendar from './Calendar';
-import { VAT_RATE } from '../constants';
+import { VAT_RATE } from '../src/constants';
 
 interface BookingModalProps {
   room: Room;

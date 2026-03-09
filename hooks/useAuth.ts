@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { createClient, SupabaseClient, Session } from '@supabase/supabase-js';
 import { UserContext, UserRole } from '../types';
-import { DEFAULT_TENANT_ID, DEFAULT_PROPERTY_ID } from '../constants';
+import { DEFAULT_TENANT_ID, DEFAULT_PROPERTY_ID } from '../src/constants';
 
 const rawUrl = process.env.SUPABASE_URL;
 const rawKey = process.env.SUPABASE_ANON_KEY;

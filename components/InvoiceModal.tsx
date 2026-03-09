@@ -1,7 +1,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { Booking, LedgerTransaction, Room } from '../types';
-import { GUEST_HOUSE_NAME, GUEST_HOUSE_ADDRESS, GUEST_HOUSE_PHONE, BUSINESS_DETAILS } from '../constants';
+import { GUEST_HOUSE_NAME, GUEST_HOUSE_ADDRESS, GUEST_HOUSE_PHONE, BUSINESS_DETAILS } from '../src/constants';
 import PrintableInvoice from './PrintableInvoice';
 import { downloadInvoicePDF } from '../src/utils/pdfGenerator';
 

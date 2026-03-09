@@ -2,7 +2,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Booking, HousekeepingStatus } from '../types';
-import { ROOMS } from '../constants';
+import { ROOMS } from '../src/constants';
 
 export const useHousekeeping = (bookings: Booking[], supabase: SupabaseClient | null) => {
   const [housekeeping, setHousekeeping] = useState<Record<string, HousekeepingStatus>>({});

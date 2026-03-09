@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Booking, Room } from '../types';
-import { GUEST_HOUSE_NAME, BUSINESS_DETAILS, GUEST_HOUSE_ADDRESS } from '../constants';
+import { GUEST_HOUSE_NAME, BUSINESS_DETAILS, GUEST_HOUSE_ADDRESS } from '../src/constants';
 import { downloadInvoicePDF } from '../src/utils/pdfGenerator';
 
 /**

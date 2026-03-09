@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Booking, Room } from '../types';
-import { ROOMS } from '../constants';
+import { ROOMS } from '../src/constants';
 
 interface CalendarProps {
   roomId: string;

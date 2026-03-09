@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getGeminiResponse } from '../services/geminiService';
-import { GUEST_HOUSE_NAME } from '../constants';
+import { GUEST_HOUSE_NAME } from '../src/constants';
 import { Booking, Room } from '../types';
 
 interface AIChatProps {
