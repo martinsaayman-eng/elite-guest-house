@@ -1,11 +1,14 @@
-/// <reference types="vite/client" />
-import { createClient } from '@supabase/supabase-client';
+// src/services/supabaseClient.ts
+import { createClient } from '@supabase/supabase-js';
 
+// Get the environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+// Check if the environment variables are present
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error("Supabase environment variables are missing!");
+  throw new Error('Missing Supabase environment variables. Please check your .env file.');
 }
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+// Create and export the Supabase client
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
